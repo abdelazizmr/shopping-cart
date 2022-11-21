@@ -1,25 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Filters from './components/Filters';
+import Products from './components/Products';
+import ShoppingCard from './components/ShoppingCard';
 
 function App() {
-  return (
+return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Filters />
+        <Products />
+        <ShoppingCard />
     </div>
-  );
+);
 }
 
 export default App;
