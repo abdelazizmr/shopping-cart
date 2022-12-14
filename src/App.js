@@ -1,15 +1,21 @@
 import './App.css';
-import Filters from './components/Filters';
+import Header from './components/Header';
 import Products from './components/Products';
-import ShoppingCard from './components/ShoppingCard';
+import CartContext from './CartContext';
+
 
 function App() {
+
 return (
-    <div className="App">
-        <Filters />
-        <Products />
-        <ShoppingCard />
-    </div>
+  
+    <CartContext>
+            <Header />
+            <div className="App">
+            <Products />
+            </div>
+ 
+      </CartContext>  
+   
 );
 }
 

@@ -1,7 +1,7 @@
 body{
-    height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 *{
@@ -10,19 +10,38 @@ body{
 }
 
 .App {
-    width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
-    gap: 40px;
+    gap: 20px;
+    flex-wrap: wrap !important;
+    margin-left: 40px !important;
+    margin-right: 40px !important;
 }
+header{
+    width: 100%;
+    padding: 0px 0px 0px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: #f1f1f1 !important;
+    z-index: 10;
+    margin: 0 !important;
+}
+header div{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
 .has-badge{
     margin: 10px;
     font-size: 25px;
-    z-index: 100;
+    z-index: 2000;
 }
-
-
 .fa-stack[data-count]:after{
   position:absolute;
   right:0%;
@@ -39,7 +58,6 @@ body{
   font-weight:bold;
   background: white;
   border-style:solid;
-  z-index: 100;
 }
 .fa-circle {
   color:#000000;
@@ -49,8 +67,36 @@ body{
 	color: white; 
 	background:#000000;
 }
-@media (max-width: 680px) {
+.item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: wheat;
+    border-bottom: 1px dashed whitesmoke;
+}
+.item img{
+    width: 150px;
+    height: 150px;
+}
+.item-quantity{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}   
+.empty{
+    color: rgb(231, 76, 76);
+    text-align: center;
+}    
+
+
+@media (max-width:680px) {
     .app{
-        flex-direction: column;
+        flex-wrap: wrap;
+        background-color: red !important;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }

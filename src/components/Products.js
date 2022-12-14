@@ -1,26 +1,28 @@
-import { useEffect, useState } from "react"
 import { Stack } from "@mui/material"
-import axios from "axios"
-import Product from "./Product"
+import ProductCard from "./ProductCard"
+import Spinner from "./tools/Spinner";
+import { useContext } from "react";
+import { Cart } from "../CartContext"
 
 const Products = () => {
 
-    const [products, setProducts] = useState([])
+  let cart = useContext(Cart)
 
-    const fetchProducts = async()=>{
-        const {data} = await axios.get('http://localhost:800/php102/creating%20api%20101/')
-        setProducts(data)
-    }
+  let products = cart.products
+  
+  //console.log(products)
 
-    useEffect(()=>{
-        fetchProducts()
-    },[])
-
+  
   return (
-    <Stack direction="row" justifyContent="space-around" flexWrap="wrap" gap={4} sx={{marginTop:'100px',zIndex:'-1'}}>
-        {products?.map(product=>(
-            <Product product={product} key={product.id} />
-        ))}
+    <Stack direction="row" justifyContent="space-around" mt={5} flexWrap="wrap" gap={2} >
+        {products?.length > 0 ?
+        
+        products.map((product,index)=>(
+            <ProductCard  product={product} key={index} />
+        ))
+      :
+        <Spinner />
+        }
     </Stack>
   )
 }
