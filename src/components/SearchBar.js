@@ -1,14 +1,16 @@
 import React from 'react'
 import { Input } from '@mui/material'
-import { useState, useContext } from 'react'
-import { SearchContext } from '../App'
+import { useContext } from 'react'
+import { Cart } from '../CartContext'
+
 
 const SearchBar = () => {
 
-  const [searchTerm,setSearchTerm] = useState('')
+
+  let {search , setSearch} = useContext(Cart)
 
   const handleChange = (e)=>{
-    setSearchTerm(e.target.value.toLocaleLowerCase())
+    setSearch(e.target.value.toLocaleLowerCase())
   }
 
 
@@ -19,7 +21,7 @@ const SearchBar = () => {
   return (
     <form display="flex" onSubmit={(e)=>handleSubmit(e)}>
         <Input 
-        type="text" value={searchTerm} 
+        type="text" value={search} 
         placeholder="Search a product .." 
         name="search"
         onChange={(e)=>handleChange(e)} 

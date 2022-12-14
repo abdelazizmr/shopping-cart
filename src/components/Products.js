@@ -6,18 +6,18 @@ import { Cart } from "../CartContext"
 
 const Products = () => {
 
-  let cart = useContext(Cart)
+  let {products , search} = useContext(Cart)
 
-  let products = cart.products
+  let displayedProducts = products.filter(product=>product.Title.toLowerCase().includes(search))
   
-  //console.log(products)
+  console.log(displayedProducts)
 
   
   return (
     <Stack direction="row" justifyContent="space-around" mt={5} flexWrap="wrap" gap={2} >
-        {products?.length > 0 ?
+        {displayedProducts?.length > 0 ?
         
-        products.map((product,index)=>(
+        displayedProducts.map((product,index)=>(
             <ProductCard  product={product} key={index} />
         ))
       :
