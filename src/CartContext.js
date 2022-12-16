@@ -79,6 +79,11 @@ const CartContext = ({children}) => {
     //calculate total price
     const getTotal = ()=>{
         let s = 0
+
+        //fixed bug 
+        if (items?.length === 0 || items === null){
+            return s
+        }
         for (let item of items){
             s += getProduct(item.id)?.Price * item.quantity
         }
