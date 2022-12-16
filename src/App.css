@@ -90,7 +90,18 @@ header div{
     color: rgb(231, 76, 76);
     text-align: center;
 }    
-
+.close{
+    display: flex;
+    justify-content: flex-end;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 
 @media (max-width:680px) {
     .app{

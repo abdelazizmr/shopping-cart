@@ -8,6 +8,7 @@ import { Cart } from '../CartContext';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
   position: 'absolute',
@@ -51,6 +52,11 @@ return (
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+           <div className='close'>
+            <Button variant="text" sx={{display:'flex',color:'black'}} onClick={()=>setOpen(false)}>
+            <CloseIcon />
+          </Button>
+           </div>
           {cart.items?.length > 0 ?
           cart.items?.map((item,index)=>(
             <div className='item' key={index}>
@@ -67,8 +73,15 @@ return (
           
           :<h3 className='empty'>Your shopping cart is empty🤕</h3>
           }
-          <Button variant='contained'  color="success" sx={{my:1,width:'100%'}}>Pay now : ${cart.getTotal()}</Button><br />
-          <Button onClick={()=>cart.removeAll()} variant='contained'  color="error" sx={{width:'100%'}}>Remove all</Button>
+          <div className='buttons'>
+          <Button sx={{width:'90%'}}   variant='contained'  color="success" >
+            Pay now : ${cart.getTotal()}
+          </Button>
+          <Button sx={{width:'90%'}} onClick={()=>cart.removeAll()} variant='contained' color="error">
+            Remove all
+          </Button>
+          </div>
+          
         
           </Box>
       </Modal>

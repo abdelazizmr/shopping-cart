@@ -17,8 +17,8 @@ const CartContext = ({children}) => {
     useEffect(()=>{
         setProducts(data)
         const arr = window.localStorage.getItem('items')
-        //console.log(arr)
-        if(arr !== 'undefined'){
+        console.log(arr)
+        if(arr?.length > 0){
             setItems(JSON.parse(arr))
         }else{
             console.log('nothing in the localstorage')
@@ -37,7 +37,6 @@ const CartContext = ({children}) => {
     const addToCart = (id)=>{
         let quantity = getQuantity(id)
         //console.log(quantity);
-
         let newitems; 
         if (quantity === 0){
             newitems = [...items,{id:id,quantity:1}];
